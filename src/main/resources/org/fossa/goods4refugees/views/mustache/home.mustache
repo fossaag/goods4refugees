@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<!-- 
+Based on Spectral by HMTL5 UP, modified by:
+
+Copyright (c) 2015 Frank Kaddereit, Jens Vogel, http://www.fossa.de/
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<html lang="de">
+<head>
+<title>Goods 4 Refugees - Hilfe für Flüchtlinge</title>
+<meta name="description" content="Womit kannst du in deiner Stadt helfen? Suche von Spenden, Tätigkeiten, materieller und immaterieller Unterstützung im Rahmen der Flüchtlingshilfe." />
+<meta name="keywords" content="flüchtlingshilfe, spenden, unterstützung, koordination, asyl, flüchtlinge, willkommen" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="/assets/css/main.css" />
+<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+</head>
+<body class="landing">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1>
+				<a href="/">Goods 4 Refugees</a>
+			</h1>
+			<nav id="nav">
+				<ul>
+					<li class="special"><a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="/impressum">Impressum</a></li>
+								<li><a href="/datenschutzhinweis">Datenschutzhinweis</a></li>
+								<li><a href="/backend">Login</a></li>
+							</ul>
+						</div></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<h2>Goods 4 Refugees</h2>
+				<p>
+					Womit kannst<br /> du in deiner <br /> Stadt helfen?
+				</p>
+				<form action="/" method="POST"
+					enctype="application/x-www-form-urlencoded">
+					<div class="form">
+						<div class="row uniform 50%">
+							<div class="8u -2u">
+								<div class="select-wrapper">
+									<select name="ortValue" required>
+										<option value="" selected>Bitte wähle deine Stadt!</option>
+										{{#orte}}
+										<option value="{{name}}">{{name}}</option>
+										{{/orte}}
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row uniform 150%">
+							<div class="8u -2u">
+								<ul class="actions">
+									<li><input class="button special" type="submit"
+										id="submitButton" name="submit" value="Los geht's!"></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="inner">
+					<p>you can choose another language at the <a href="#include_footer">bottom of the page</a></p>
+					<p>Aktuell sind {{countHilfsgut}} Einträge von {{countOrganisationen}} Organisationen aus {{countOrte}} Städten eingetragen.</p>
+				</div>
+			</div>
+			<a href="#last-5" class="more scrolly">mehr erfahren</a>
+		</section>
+
+		<!-- Last-5 -->
+		<section id="last-5" class="wrapper style3">
+			<div class="inner">
+				<h3>Ganz aktuell und dringend werden benötigt</h3>
+				<table>
+					<tr>
+						<th>Was</th>
+						<th>Wo</th>
+						<th>Seit</th>
+					</tr>
+					{{#lastFive}}
+					<tr>
+						<td style="align: left;"><a
+							href="/ort/{{abgabestelle.ort.name}}/hilfsgut/{{id}}">{{name}}</a></td>
+						<td><a href="/ort/{{abgabestelle.ort.name}}">{{abgabestelle.ort.name}}</a></td>
+						<td>{{angelegtDatumString}}</td>
+					</tr>
+					{{/lastFive}}
+				</table>
+			</div>
+		</section>
+
+		<!-- One -->
+		<section id="one" class="wrapper style1 special">
+			<div class="inner">
+				<header class="major">
+					<h2>
+						Das Prinzip ist denkbar einfach,<br /> suchen - aktiv werden -
+						geholfen.
+					</h2>
+					<p>
+						Du suchst einfach was in deiner Stadt am dringensten benötigt
+						wird.<br /> oder schaust, bei welchen Organisationen du dich
+						aktiv einbringen kannst.
+					</p>
+				</header>
+				<ul class="icons major">
+					<li><span class="icon fa-search major style1"><span
+							class="label">Suchen</span></span></li>
+					<li><span class="icon fa-cogs major style1"></i><span
+							class="label">Aktiv werden</span></span></li>
+					<!-- <i class="fa fa-cog fa-spin"></i> -->
+					<!-- <span class="icon fa-shopping-cart major style2"> -->
+					<li><span class="icon fa-thumbs-up major style1"><span
+							class="label">Geholfen</span></span></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Two -->
+		<section id="two" class="wrapper alt style2">
+			<section class="spotlight">
+				<div class="image">
+					<img src="/assets/images/pic01.jpg" alt="Wer benötigt Spenden, Tätigkeiten, materielle und immaterielle Unterstützung?" />
+				</div>
+				<div class="content">
+					<h2>
+						Wer benötigt was?<br /> Nicht alles wird überall benötigt.
+					</h2>
+					<p>Wer benötigt was? Nicht alles wir überall benötigt. Doch
+						woher weißt du was gebraucht wird? Und wo? Hier findest du welche
+						Spenden, Tätigkeiten, materielle und immaterielle Unterstützung an
+						welchen Punkten deiner Stadt benötigt wird.</p>
+				</div>
+			</section>
+			<section class="spotlight">
+				<div class="image">
+					<img src="/assets/images/pic02.jpg" alt="Mit welchen Spenden kannst du helfen?" />
+				</div>
+				<div class="content">
+					<h2>Du möchtest helfen?</h2>
+					<p>
+						Du wählst auf der <a href="#">Startseite</a> deine Stadt aus und
+						wir zeigen dir welche Spenden, Tätigkeiten, materielle und
+						immaterielle Unterstützung dort benötigt werden. Interessierst du
+						dich für eine bestimmte Kategorie steht ein Link bereit. Die
+						Organisationen, an die du dich wenden kannst, und weitere
+						Informationen sind ebenfalls nur einen Klick entfernt.
+
+					</p>
+				</div>
+			</section>
+			<section class="spotlight">
+				<div class="image">
+					<img src="/assets/images/pic03.jpg" alt="Du gehörst zu einer Organisation und möchtest dich eintragen?" />
+				</div>
+				<div class="content">
+					<h2>Du gehörst zu einer Organisation?</h2>
+					<p>
+						Wenn du zu einer Organisation gehörst, die sich um die Verteilung
+						von Spenden, Tätigkeiten, materielle und immaterielle
+						Unterstützung kümmert und diese auf der Plattform eintragen
+						möchtest, kannst du uns ganz einfach eine <a href="#contact">Nachricht
+							per Formular</a> mit deinen wesentlichen Daten schicken. Wir schicken
+						dir dann einen Zugang, über den du dann alles weitere selbst
+						erledigen kannst.
+					</p>
+				</div>
+			</section>
+		</section>
+
+		<!-- Three -->
+		<section id="three" class="wrapper style3 special">
+			<div class="inner">
+				<header class="major">
+					<h2>In Kategorien denken</h2>
+					<p>
+						Nicht alles wird in großer Zahl benötigt, andere Hilfsgüter umso
+						dringender.<br /> Hier siehst du in welchen Kategorien wir
+						denken.
+					</p>
+				</header>
+				<ul class="features">
+					<li class="icon fa-child">
+						<h3>Baby/Kinder</h3>
+						<p>Alles, was für Babies und Kinder wichtig ist. Spielzeug für
+							Kinder unterschiedlichsten Alters, Babyhygiene, Betten und alles,
+							was man sich sonst noch vorstellen kann.</p>
+					</li>
+					<li class="icon fa-street-view">
+						<h3>Kleidung</h3>
+						<p>Kleidung für Mädchen und Jungen, Frauen und Männer, Alte
+							und Junge. Schuhe, Gürtel, Hosen, Blusen etc. Bei Stramplern,
+							Unterwäsche und Socken etc. bitte nur Neuware.</p>
+					</li>
+					<li class="icon fa-bicycle">
+						<h3>Beschäftigung</h3>
+						<p>Bücher in deutsch, arabisch, englisch; Karten-, Brett und
+							sonstige Spiele (international bekannt und ohne deutsche
+							Anleitung) und Bälle jeder Art. Für drinnen und draußen.</p>
+					</li>
+					<li class="icon fa-plus-square">
+						<h3>Hygieneartikel</h3>
+						<p>Duschbad und Shampoo, Zahnpasta und -bürsten, Kämme,
+							Bürsten und Haarschneidemaschinen, Damenhygieneartikel. Also
+							alles, was dein Drogeriemarkt zu bieten hat.</p>
+					</li>
+					<li class="icon fa-umbrella">
+						<h3>Weiteres</h3>
+						<p>Haushaltsgegenstände, Stoffe, Nähzeug und Nähmaschinen,
+							Rucksäcke und Reisetaschen, Kopfhörer und Mobiltelefone,
+							Pre-Paid-Karten, Fahrräder und vieles mehr.</p>
+					</li>
+					<li class="icon fa-heart">
+						<h3>Immaterielles</h3>
+						<p>Deutschunterricht, Essensausgabe, Patenschaften,
+							medizinisches Personal, Kinderbetreuung, Sprachkenntnisse (Hindu,
+							Albanisch, Pakistanisch, Kurdisch, Farsi), Übersetzungen.</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section id="contact" class="wrapper style4 special">
+			<div class="inner">
+				<h3>Du möchtest deine Organisation eintragen?</h3>
+				<h4>Los geht's!</h4>
+				<form method="post"
+					action="http://formspree.io/orga_neu@goods4refugees.org">
+					<div class="row uniform">
+						<input type="hidden" name="_next"
+							value="//goods4refugees.org/danke" />
+						<div class="6u 12u$(xsmall)">
+							<input type="text" name="name" id="name" value=""
+								placeholder="Name*" required />
+						</div>
+						<div class="6u$ 12u$(xsmall)">
+							<input type="text" name="ort" id="ort" value="" placeholder="Ort*"
+								required />
+						</div>
+						<div class="12u$">
+							<input type="text" name="anschrift" id="anschrift" value=""
+								placeholder="Anschrift*" required />
+						</div>
+						<div class="6u 12u$(xsmall)">
+							<input type="text" name="ansprechpartner" id="ansprechpartner"
+								value="" placeholder="Ansprechpartner" />
+						</div>
+						<div class="6u$ 12u$(xsmall)">
+							<input type="text" name="oeffnungszeiten" id="oeffnungszeiten"
+								value="" placeholder="Öffnungszeiten*" required />
+						</div>
+						<div class="6u 12u$(xsmall)">
+							<input type="email" name="email" id="email" value=""
+								placeholder="E-Mail*" required />
+						</div>
+						<div class="6u$ 12u$(xsmall)">
+							<input type="text" name="telefon" id="telefon" value=""
+								placeholder="Telefon*" required />
+						</div>
+						<div class="12u$">
+							<input type="text" name="internet" id="internet" value=""
+								placeholder="Internet (http://deine.organisation.de)" />
+						</div>
+						<div class="12u$">
+							<textarea name="kurzvorstellung" id="kurzvorstellung"
+								placeholder="Kurzvorstellung deiner Organisation oder deines Angebotes"
+								rows="6"></textarea>
+						</div>
+						<div class="12u$">
+							<ul class="actions">
+								<li><input type="submit" value="Absenden" class="special" /></li>
+								<li><input type="reset" value="Zurücksetzen" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<div id="include_footer"></div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/assets/js/jquery.scrolly.min.js"></script>
+	<script src="/assets/js/skel.min.js"></script>
+	<script src="/assets/js/util.js"></script>
+	<script src="/assets/js/jquery.safari.required_fix.js"></script>
+	<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="/assets/js/main.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script>
+		$(function() {
+			$("#include_footer").load("/assets/inc/footer.html");
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<!-- 
+Based on Spectral by HMTL5 UP, modified by:
+
+Copyright (c) 2015 Frank Kaddereit, Jens Vogel, http://www.fossa.de/
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<html lang="de">
+<head>
+<title>Goods 4 Refugees - Hilfe für Flüchtlinge</title>
+<meta name="description" content="Womit kannst du in deiner Stadt helfen? Suche von Spenden, Tätigkeiten, materieller und immaterieller Unterstützung im Rahmen der Flüchtlingshilfe." />
+<meta name="keywords" content="flüchtlingshilfe, spenden, unterstützung, koordination, asyl, flüchtlinge, willkommen" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="/assets/css/main.css" />
+<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+</head>
+<body>
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<h1>
+				<a href="/">Goods 4 Refugees</a>
+			</h1>
+			<nav id="nav">
+				<ul>
+					<li class="special"><a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="/impressum">Impressum</a></li>
+								<li><a href="/datenschutzhinweis">Datenschutzhinweis</a></li>
+								<li><a href="/backend">Login</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Main -->
+		<article id="main">
+			<header>
+				<h2>Suchbegriff "{{suchbegriff}}"</h2>
+				<p>Deine Suche brachte folgende Ergebnisse</p>
+			</header>
+			<section class="wrapper style1">
+				<div class="inner">
+					<form action="/suche" method="POST" enctype="application/x-www-form-urlencoded">
+						<div class="form">
+							<div class="row uniform 50%">
+								<div class="8u -2u">
+									<input type="text" name="suchbegriff" maxlength="30" value="{{suchbegriff}}" required>
+								</div>
+							</div>
+							<div class="row uniform 50%">
+								<div class="8u -2u">
+									<ul class="actions">
+										<li><input class="button special" type="submit" id="submitButton" name="submit" value="Suchen..."></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</form>
+				
+
+				</div>
+			</section>
+			<section class="wrapper style5">
+				<div class="inner">
+				<h4>Ergebnis deiner Suche nach "{{suchbegriff}}"</h4>
+					<table border="1">
+						<tr>
+							<th>Was wird gesucht?</th>
+							<th>Kategorie</th>
+							<th>Eingestellt am</th>
+						</tr>
+						{{#hilfsgueter}}
+						<tr>
+							<td><a href="/ort/{{abgabestelle.ort.name}}/hilfsgut/{{id}}">{{name}}</a></td>
+							<td><a href="/ort/{{abgabestelle.ort.name}}/kategorie/{{kategorie.name}}">{{kategorie.name}}</a></td>
+							<td>{{angelegtDatumString}}</td>
+						</tr>
+						{{/hilfsgueter}}
+						{{^hilfsgueter}}
+						<tr>
+							<td colspan="3">keine Einträge zu Spenden, Tätigkeiten, materieller und immaterieller Unterstützung gefunden</td>
+						</tr>
+						{{/hilfsgueter}}
+					</table>
+				</div>
+				<div class="inner">
+					<p>Abgabestellen:</p>
+					<table border="1">
+						<tr><th>Wer?</th></tr>
+						{{#abgabestellen}}
+						<tr><td><a href="/ort/{{ort.name}}/{{name}}">{{name}}</a></td></tr>
+						{{/abgabestellen}}
+						{{^abgabestellen}}
+						<td colspan="3">keine Organisationen gefunden</td>
+						{{/abgabestellen}}
+					</table>
+				</div>
+			</section>
+		</article>
+
+		<!-- Footer -->
+		<div id="include_footer"></div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/assets/js/jquery.scrolly.min.js"></script>
+	<script src="/assets/js/skel.min.js"></script>
+	<script src="/assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="/assets/js/main.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script> 
+		$(function(){
+			$("#include_footer").load("/assets/inc/footer.html"); 
+		});
+	</script> 
+
+</body>
+</html>
